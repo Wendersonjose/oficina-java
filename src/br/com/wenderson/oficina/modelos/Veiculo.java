@@ -70,7 +70,9 @@ public class Veiculo {
 
     @Override
     public String toString() {
-        return "Veículo: " + marca + "\nmodelo " + modelo +
-                "\nPlaca: " + placa + "\ncor " + cor + "\nanoFabricacao " + anoFabricacao;
+        return "Veículo: " + marca + " " + modelo +
+                "\nPlaca: " + placa +
+                "\nCor: " + cor +
+                "\nAno de fabricação: " + anoFabricacao;
     }
 }
