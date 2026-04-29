@@ -30,8 +30,8 @@ public class Peca {
     @Override
     public String toString() {
         return "Peça: " + nome +
-                "\nValor unitário: R$ " + valorUnitario +
+                "\nValor unitário: R$ " + String.format("%.2f", valorUnitario) +
                 "\nQuantidade: " + quantidade +
-                "\nTotal: R$ " + getTotal();
+                "\nTotal: R$ " + String.format("%.2f", getTotal());
     }
 }
