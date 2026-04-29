@@ -1,4 +1,5 @@
 import br.com.wenderson.oficina.modelos.Cliente;
+import br.com.wenderson.oficina.modelos.Servico;
 import br.com.wenderson.oficina.modelos.Veiculo;
 import br.com.wenderson.oficina.modelos.Peca;
 
@@ -62,10 +63,39 @@ public class Main {
 
         Peca peca = new Peca(nomePeca, valor, quantidade);
 
+        // ===== SERVIÇO =====
+        Servico s1 = new Servico("Troca de óleo", 80);
+        Servico s2 = new Servico("Alinhamento", 120);
+        Servico s3 = new Servico("Balanceamento", 100);
+        Servico s4 = new Servico("Revisão geral", 300);
+
+        System.out.println("\nEscolha um serviço:");
+        System.out.println("1 - " + s1);
+        System.out.println("2 - " + s2);
+        System.out.println("3 - " + s3);
+        System.out.println("4 - " + s4);
+
+        System.out.print("Digite a opção: ");
+        int opcaoServico = input.nextInt();
+        input.nextLine();
+
+        Servico servicoEscolhido;
+
+        if (opcaoServico == 1) {
+            servicoEscolhido = s1;
+        } else if (opcaoServico == 2) {
+            servicoEscolhido = s2;
+        } else if (opcaoServico == 3) {
+            servicoEscolhido = s3;
+        } else {
+            servicoEscolhido = s4;
+        }
+
         // ===== RESULTADO =====
         System.out.println("\n===== RESUMO =====");
         System.out.println(cliente);
         System.out.println(veiculo);
         System.out.println(peca);
+        System.out.println(servicoEscolhido);
     }
 }
