@@ -1,7 +1,4 @@
-import br.com.wenderson.oficina.modelos.Cliente;
-import br.com.wenderson.oficina.modelos.Servico;
-import br.com.wenderson.oficina.modelos.Veiculo;
-import br.com.wenderson.oficina.modelos.Peca;
+import br.com.wenderson.oficina.modelos.*;
 
 import java.util.Scanner;
 
@@ -31,7 +28,7 @@ public class Main {
 
         Cliente cliente = new Cliente(nome, cpf, endereco, telefone, email, cep);
 
-        // ===== VEICULO =====
+        // ===== VEÍCULO =====
         System.out.print("Placa: ");
         String placa = input.nextLine();
 
@@ -46,7 +43,7 @@ public class Main {
 
         System.out.print("Ano: ");
         int ano = input.nextInt();
-        input.nextLine(); // LIMPA O ENTER
+        input.nextLine();
 
         Veiculo veiculo = new Veiculo(placa, modelo, marca, cor, ano, cliente);
 
@@ -59,7 +56,7 @@ public class Main {
 
         System.out.print("Digite a quantidade: ");
         int quantidade = input.nextInt();
-        input.nextLine(); // LIMPA O ENTER
+        input.nextLine();
 
         Peca peca = new Peca(nomePeca, valor, quantidade);
 
@@ -91,11 +88,36 @@ public class Main {
             servicoEscolhido = s4;
         }
 
+        // ===== ORDEM DE SERVIÇO =====
+        OrdemServico ordem = new OrdemServico(cliente, veiculo, peca, servicoEscolhido);
+
+        // ===== STATUS DA ORDEM =====
+        System.out.println("\nEscolha o status da ordem:");
+        System.out.println("1 - ABERTA");
+        System.out.println("2 - EM ANDAMENTO");
+        System.out.println("3 - FINALIZADA");
+        System.out.println("4 - CANCELADA");
+
+        System.out.print("Digite a opção: ");
+        int opcaoStatus = input.nextInt();
+        input.nextLine();
+
+        if (opcaoStatus == 1) {
+            // Ordem já nasce como ABERTA
+        } else if (opcaoStatus == 2) {
+            ordem.iniciar();
+        } else if (opcaoStatus == 3) {
+            ordem.iniciar();
+            ordem.finalizar();
+        } else if (opcaoStatus == 4) {
+            ordem.cancelar();
+        } else {
+            System.out.println("Opção inválida. Ordem mantida como ABERTA.");
+        }
+
         // ===== RESULTADO =====
-        System.out.println("\n===== RESUMO =====");
-        System.out.println(cliente);
-        System.out.println(veiculo);
-        System.out.println(peca);
-        System.out.println(servicoEscolhido);
+        System.out.println("\n" + ordem);
+
+        input.close();
     }
 }

@@ -1,4 +1,8 @@
 package br.com.wenderson.oficina.modelos;
 
-public class StatusOrdem {
+public enum StatusOrdem {
+    ABERTA,
+    EM_ANDAMENTO,
+    FINALIZADA,
+    CANCELADA
 }
